@@ -66,6 +66,8 @@
   lineinfile:
     dest: "/etc/tinc/{{ tinc_netname }}/hosts/{{ inventory_hostname | replace('.','_') | replace('-','_') }}"
     line: "-----END RSA PUBLIC KEY-----"
+    mode: "0600"
+    create: yes
   check_mode: yes
   register: contains_publickey_ending
 
